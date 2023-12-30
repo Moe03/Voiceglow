@@ -1,4 +1,4 @@
-# Voiceglow Open Source
+# Voiceglow Docs
 Make your voiceflow chatbots glow!
 https://voiceglow.org
 <br/>
