@@ -1,4 +1,6 @@
-# Voiceglow Docs
+<img src="https://cdn.voiceglow.org/COOOOOOOOOL.png" alt="VG + VF = Magic!" width="100%"/>
+
+## Voiceglow Docs
 Make your voiceflow chatbots glow!
 https://voiceglow.org
 <br/>
