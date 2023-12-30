@@ -5,7 +5,7 @@ https://voiceglow.org
 Docs to programatically interact with the VG widget with JS. React package coming soon 👀
 
 ## IMPORTANT: 
-The following is subject to change as we're rebuilding our backend systems to handle more channels, and potentially more platforms going forward, we will try our best to keep everything as it is but whenever there is a change in the data structure it is for the better, we'll also be notifying on discord whenever there is a major change.
+The following is subject to change as we're rebuilding our backend systems to handle more channels, and potentially more platforms going forward, we will try our best to keep everything as it is but whenever there is a change in the data structure it is for the better, we'll also be notifying on discord whenever there is a major change, we are specifically going to change the message structure in the 'turns', we'll try to keep supporting the depracated values for some time, overall tho the rest is going to be the same.
 
 # Quickstart:
 
