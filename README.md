@@ -1,7 +1,7 @@
 <img src="https://cdn.voiceglow.org/COOOOOOOOOL.png" alt="VG + VF = Magic!" width="100%"/>
 
 ## Voiceglow Docs
-Make your voiceflow chatbots glow!
+Make your voiceflow chatbots glow! Create an account then deploy an agent in seconds here: 
 https://voiceglow.org
 <br/>
 Docs to programatically interact with the VG widget with JS. React package coming soon 👀 <br />
