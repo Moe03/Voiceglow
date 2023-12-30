@@ -25,12 +25,22 @@ Used to reload the chat and start a new one.
 window.VG_ADMIN.reload();
 ```
 ___
-- **Get Runtime Data:* *<br />
+- **Get Runtime Data:** <br />
 Used to get the runtime which contains the chatHistory, userID, and much more, try it out yourself!
 ```ts
 const vgRuntime = window.VG_ADMIN.getRuntimeData();
 ```
 ___
+- **Set Runtime Data:** <br />
+Used typically now to fully control the conversation, see first usecase at the bottom for more context.
+```ts
+window.VG_ADMIN.setRuntime({
+  manualControl: true,
+  agentName: 'Atoot'
+})
+```
+___
+
 - **Events:** <br />
   All your agent's events are handled through "VG_Events" custom event.
 ```ts
