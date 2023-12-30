@@ -25,7 +25,7 @@ Used to reload the chat and start a new one.
 window.VG_ADMIN.reload();
 ```
 ___
-- **Get Runtime Data:**
+- **Get Runtime Data:* *<br />
 Used to get the runtime which contains the chatHistory, userID, and much more, try it out yourself!
 ```ts
 const vgRuntime = window.VG_ADMIN.getRuntimeData();
@@ -67,17 +67,16 @@ function customEventHandler(e: CustomEvent<VGCustomEvent>){
 
 document.addEventListener('VG_Events', customEventHandler);
 ```
-
+___
 ## Use case 1: <br/>
 Full control over the chat:
-
 ```ts
 window.VG_ADMIN.setRuntime({
   agentName: "Atoot", // any string, better to be a one word name.
   manualControl: true // this will disable the AI, VF API and let you have full control over the chat.
 })
 ```
-
+___
 Now lets try it out, try the following in the console after the previous script:
 ```ts
 window.VG_ADMIN.pushMessage({
@@ -152,7 +151,7 @@ function customEventHandler(e: CustomEvent<VGCustomEvent>){
 
 document.addEventListener('VG_Events', customEventHandler);
 ```
-
+___
 ### Full API: <br />
 Warning: Boring stuff
 
@@ -304,4 +303,44 @@ export interface RuntimeInterface {
 }
 
 const RuntimeInterface = window.getRuntime();
+```
+___
+- Events API:
+```ts
+function customEventHandler(e: CustomEvent<VGCustomEvent>) {
+
+    const eventType = e.detail.event; // can be: 'new_turn' | 'new_message' | 'chat_open' | 'chat_close' | 'chat_restart'
+
+    if (eventType === 'new_turn') {
+        const eventData: {
+            turns: TurnProps[],
+            newTurn: TurnProps
+        } = e.detail.data;
+        console.log(eventData)
+    }
+    if (eventType === 'new_message') {
+        // new message was added, this is triggered when a new message was added and is visible to the user.
+        const eventData: {
+            from: 'human' | 'bot'
+            type: 'text' | 'jsx' | 'carousel' | 'card' | 'visual' | 'FileUpload' | 'buttons' | 'VGVF_Channel' | 'no-reply' | string
+            content: any,
+            ts?: number
+        } = e.detail.data;
+        console.log(eventData)
+    }
+    if (eventType === 'chat_open') {
+        // user has opened the chatbox, works only if render is set to 'popup'
+        console.log('You opened the Chatbox.')
+    }
+    if (eventType === 'chat_close') {
+        // user has closed the chatbox, works only if render is set to 'popup'
+        console.log('You closed the Chatbox.')
+    }
+    if (eventType === 'chat_restart') {
+        // user has restarted the chat, works only if render is set to 'popup'
+        console.log('You restarted the Chatbox.')
+    }
+}
+
+document.addEventListener('VG_Events', customEventHandler);
 ```
