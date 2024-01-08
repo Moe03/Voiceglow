@@ -80,7 +80,9 @@ document.addEventListener('VG_Events', customEventHandler);
 
 ## Interact with webhooks (Continue conversations NOT initiating them):
 To interact with your user on the widget you need 3 things: 
-- Your widget region (account region on VG)
+- Your widget region (account region on VG) <br />
+  **North America Server: https://na-runtime.voiceglow.org'** <br />
+  **Europe Server: https://eu-voiceglow-runtime-vbmbkqccuq-ey.a.run.app** <br />
 - AgentID on Voiceglow
 - UserID of the user to inteact with
 
