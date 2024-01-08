@@ -80,6 +80,69 @@ function customEventHandler(e: CustomEvent<VGCustomEvent>){
 
 document.addEventListener('VG_Events', customEventHandler);
 ```
+
+## Interact with webhooks (Continue conversations NOT initiating them):
+To interact with your user on the widget you need 3 things: 
+- Your widget region (account region on VG)
+- AgentID on Voiceglow
+- UserID of the user to inteact with
+
+#### Send a message from the bot/human (Without Interacting):
+```ts
+// Adjust VF variables, append messages to be viewed
+// This following is used if you only want to show messages to the user, and not interact with the VF agent.
+fetch(`https://na-runtime.voiceglow.org/vg/${agentID}/vf/interact/${userID}`, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        "variables": {
+            "user_name": "Mr Atoot"
+        },
+        "appendMessages": [
+            {
+                "from": "bot",
+                "type": "text",
+                "item": {
+                    "payload": {
+                        "message": "Did you know that the strongest muscle in the body is the tongue!"
+                    }
+                },
+                "delay": 0
+            }
+        ]
+    })
+})
+```
+___
+#### Send a message as the user (With interacting);
+- Please note this use case is typically used with stringifying a JSON object for example and masking it on the user's side, we provide an easy way to do it for you through a message type called "info:success" | "info:primary" | "info:danger" | "info:default" where that will mask the action message with the correspoding event color, if you're interacting on behalf of the user it may become confusing for them, that's why we recommend having a different looking message that appears in the UI if you interact on their behalf.
+```ts
+fetch(`https://na-runtime.voiceglow.org/vg/${agentID}/vf/interact/${userID}`, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        "variables": {
+            "user_name": "Mr Atoot"
+        },
+        "appendMessages": [
+            {
+                "from": "bot",
+                "type": "info:default",
+                "item": "Will execute query: Hi there!",
+                "delay": 0
+            }
+        ],
+        "action": {
+            "type": "text",
+            "payload": "Hi there!"
+        }
+    })
+})
+```
 ___
 ## Use case 1: <br/>
 Full control over the chat:
