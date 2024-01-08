@@ -230,6 +230,65 @@ ___
 ### Full API: <br />
 Warning: Boring stuff
 
+- Change agent options from script:
+```ts
+interface VGConfig {
+    ID?: string;
+    stylesheets?: string[];
+    render?: 'popup' | 'full-width';
+    region?: 'eu' | 'na',
+    userID?: string,
+    autostart?: boolean,
+    pushMessage?: (message: string) => void;
+    getRuntimeData?: () => any,
+    variables?: ChatRuntime
+}
+
+window.VG_CONFIG = {
+    ID?: string;
+    stylesheets?: string[];
+    render?: 'popup' | 'full-width';
+    region?: 'eu' | 'na',
+    userID?: string,
+    autostart?: boolean,
+    pushMessage?: (message: string) => void;
+    getRuntimeData?: () => any,
+    variables?: {
+        theme?: string;
+        title?: string;
+        description?: string;
+        roundedImageURL?: string;
+        rectangeImageURL?: string;
+        messageDelayMS?: number;
+        scrollAnimation?: boolean;
+        proactiveMessage?: string;
+        acceptFileUpload?: boolean;
+        recordChatHistory?: boolean;
+        chatBgURL?: string;
+        disableSmoothScroll?: boolean;
+        ownerID?: string;
+        isDeployed?: boolean;
+        tokensUsage?: any;
+        maxTokensUsage?: any;
+        lastModified?: number;
+        fontFamily?: string;
+        branding?: string;
+        customThemeJSONString?: string;
+        autoStartWidget?: boolean;
+        allTimeTriggers?: number;
+        syncBrowser?: boolean;
+        delayBeforeSubmit?: number;
+        region?: 'voiceglow-eu' | '(default)',
+        listenForUrlChanges?: boolean,
+        chatForget?: boolean,
+        lang?: string,
+        customButtonJSON_STRING?: string,
+        enableAudioSupport?: boolean,
+        AITranslateTo?: string;
+        enableAITranslate?: boolean;
+    }
+} as VGConfig
+```
 - Push Message API:
 ```ts
  interface PushMessageInterface {
