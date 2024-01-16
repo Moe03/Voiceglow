@@ -286,7 +286,8 @@ window.VG_CONFIG = {
         enableAudioSupport?: boolean,
         AITranslateTo?: string;
         enableAITranslate?: boolean;
-    }
+    },
+    vf_variables: object // set VF variables on initial request
 } as VGConfig
 ```
 - Push Message API:
