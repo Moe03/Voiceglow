@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+    </style>
+</head>
+<body>
+    <!-- Remove 'defer' if you want widget to load faster (Will affect website loading) -->
+    <script>
+        const FormExtension = {
+            name: 'Custom_Form', // Extension name
+            render: ({ trace, element }) => {
+                // Function to render the form
+                console.log(`trace from extension: `, trace)
+                const formContainer = document.createElement('form'); // Create a form element dynamically
+
+                // Set the inner HTML of the form, simplifying it to only include input fields and a submit button
+                formContainer.innerHTML = `
+<label for="name">Name:</label>
+<input type="text" class="name" name="name"><br><br>
+<label for="email">Email:</label>
+<input type="email" class="email" name="email"><br><br>
+<label for="phone">Phone Number:</label>
+<input type="tel" class="phone" name="phone"><br><br>
+<input type="submit" class="submit" value="Submit">
+`;
+
+                // Attach an event listener to the form for handling the submit event
+                formContainer.addEventListener('submit', function (event) {
+                    event.preventDefault(); // Prevent default form submission behavior
+                    // Extract values from the form fields
+                    const name = formContainer.querySelector('.name').value;
+                    const email = formContainer.querySelector('.email').value;
+                    const phone = formContainer.querySelector('.phone').value;
+                    // Simplify the logic: Remove the submit button after submission without validation checks
+                    formContainer.querySelector('.submit').remove();
+                    // Programmatically submit the form data
+                    window.VG_ADMIN.interact({ type: 'complete', payload: { name, email, phone } });
+                });
+
+                element.appendChild(formContainer); // Append the form to the specified DOM element
+            },
+        };
+        (function () {
+            document.querySelector('html').style.fontSize = "10px"; // 16px is the default value, this is needed now for fully eliminating spacing issues.
+            window.VG_CONFIG = {
+                ID: "29q4n9vaqk",
+                region: 'eu', // 'eu' or 'na'corresponding to Europe and North America
+                vf_variables: {
+                    from_vg: `Hey, coming from VG's script`
+                },
+                render: 'popup', // popup or full-width
+                stylesheets: [
+                    // Base Voiceglow CSS
+                    "https://storage.googleapis.com/voiceglow-cdn/vg_dev_build/styles.css",
+                    // Add your custom css stylesheets, Can also add relative URL ('/public/your-file.css)
+                ],
+                vf_variables: { // init the conversation with custom variables 
+                    from_vg: 'hey there coming from vG'
+                },
+                extensions: [ // extensions array
+                  FormExtension
+                ],
+            };
+            var VG_SCRIPT = document.createElement("script");
+            VG_SCRIPT.src = "https://storage.googleapis.com/voiceglow-eu/vg_dev_build/vg_bundle.js";
+            document.body.appendChild(VG_SCRIPT);
+        })()
+    </script>
+</body>
+</html>
