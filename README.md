@@ -1,6 +1,6 @@
 <img src="https://cdn.voiceglow.org/COOOOOOOOOL.png" alt="VG + VF = Magic!" width="100%"/>
 
-# API Documention:
+# API Docs:
 https://docs.voiceglow.org
 
 ## Voiceglow Docs
