@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Voiceglow HTML Sample</title>
+    <style>
+        input {
+            border: 1px solid black !important;
+        }
+
+        .vg-footer-input {
+            border: none !important;
+        }
+    </style>
+    <link rel="stylesheet" href="https://storage.googleapis.com/voiceglow-cdn/vg_dev_build/styles.css" />
+</head>
+
+<body>
+
+    <!-- Remove 'defer' if you want widget to load faster (Will affect website loading) -->
+    <script>
+        function initVG() {
+            document.querySelector('html').style.fontSize = "16px"; // 16px is the default value, this is needed now for fully eliminating spacing issues.
+            window.VG_CONFIG = {
+                ID: "VZcnzuMvpl",
+                region: 'na', // 'eu' or 'na'corresponding to Europe and North America
+                render: 'popup', // popup or full-width
+                stylesheets: [
+                    // Base Voiceglow CSS
+                    "./vg-build/styles.css",
+                    // Add your custom css stylesheets, Can also add relative URL ('/public/your-file.css)
+                ],
+                // autostart: true
+                // userID: 'USER_ID', // If you want to use your own user_id
+                // autostart: true, // Whether to autostart the chatbot with the proactive message
+            }
+            var VG_SCRIPT = document.createElement("script");
+            VG_SCRIPT.src = "./vg-build/vg_bundle.js";
+            document.body.appendChild(VG_SCRIPT);
+        }
+        initVG()
+    </script>
+
+</body>
+</head>
+
+</html>
