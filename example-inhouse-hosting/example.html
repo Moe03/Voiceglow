@@ -1,31 +1,12 @@
 <html>
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Voiceglow HTML Sample</title>
-    <style>
-        input {
-            border: 1px solid black !important;
-        }
-
-        .vg-footer-input {
-            border: none !important;
-        }
-    </style>
-    <link rel="stylesheet" href="https://storage.googleapis.com/voiceglow-cdn/vg_dev_build/styles.css" />
-</head>
-
 <body>
-
+    <p>This example should not consume any credits for visitors if you also make sure all the widget image urls are hosted on your own server.</p>
     <!-- Remove 'defer' if you want widget to load faster (Will affect website loading) -->
     <script>
         function initVG() {
-            document.querySelector('html').style.fontSize = "16px"; // 16px is the default value, this is needed now for fully eliminating spacing issues.
             window.VG_CONFIG = {
-                ID: "VZcnzuMvpl",
-                region: 'na', // 'eu' or 'na'corresponding to Europe and North America
+                ID: "WIDGET_ID", // your agent id
+                region: 'eu', // 'eu' or 'na'corresponding to Europe and North America
                 render: 'popup', // popup or full-width
                 stylesheets: [
                     // Base Voiceglow CSS
